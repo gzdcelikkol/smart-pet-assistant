@@ -1,9 +1,11 @@
-# PetVision - Smart Glasses Pet Owner Assistant
+# PetVision - Smart Glasses Pet Owner Assistant (Simulation)
 
 ## Project Overview
 **PetVision** is a cutting-edge smart glasses application designed for comprehensive pet care management. Developed as part of a Software Engineering Analysis class project, this application bridges the gap between wearable innovation and pet care needs. 
 
 It transforms how pet owners interact with and care for their animals by providing real-time health monitoring, intelligent nutrition management, veterinary teleconsultation, and advanced pet tracking capabilities directly within the user's field of vision using Augmented Reality (AR).
+
+This project shows a brief simulation of the designed project
 
 ## Team Members
 - Gamze Batil
