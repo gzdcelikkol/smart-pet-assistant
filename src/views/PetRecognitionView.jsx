@@ -14,6 +14,7 @@ import {
   Wifi,
   Sparkles
 } from 'lucide-react';
+import { ViewHeader } from '../components/ViewHeader';
 import { sounds } from '../utils/soundEffects';
 
 export const PetRecognitionView = ({ onOpenRegisterModal }) => {
@@ -85,6 +86,11 @@ export const PetRecognitionView = ({ onOpenRegisterModal }) => {
 
   return (
     <div style={{ position: 'relative', height: '100%', display: 'flex', flexDirection: 'column' }}>
+      <ViewHeader 
+        title="AI Pet Recognition" 
+        subtitle="Biometric Camera Scan" 
+        onOpenRegisterModal={onOpenRegisterModal} 
+      />
       {/* Top Camera HUD Bar */}
       <div style={{
         position: 'absolute',
@@ -168,7 +174,8 @@ export const PetRecognitionView = ({ onOpenRegisterModal }) => {
               borderRadius: '20px',
               padding: '14px',
               boxShadow: '0 10px 30px rgba(0, 240, 255, 0.3)',
-              animation: 'slideUp 0.3s ease-out'
+              animation: 'slideUp 0.3s ease-out',
+              pointerEvents: 'auto'
             }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '8px' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
@@ -254,7 +261,8 @@ export const PetRecognitionView = ({ onOpenRegisterModal }) => {
               borderRadius: '20px',
               padding: '14px',
               boxShadow: '0 10px 30px rgba(245, 158, 11, 0.3)',
-              animation: 'slideUp 0.3s ease-out'
+              animation: 'slideUp 0.3s ease-out',
+              pointerEvents: 'auto'
             }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#f59e0b', marginBottom: '6px' }}>
                 <AlertTriangle size={20} />
@@ -313,7 +321,8 @@ export const PetRecognitionView = ({ onOpenRegisterModal }) => {
               padding: '14px',
               boxShadow: '0 10px 30px rgba(244, 63, 94, 0.3)',
               animation: 'slideUp 0.3s ease-out',
-              textAlign: 'center'
+              textAlign: 'center',
+              pointerEvents: 'auto'
             }}>
               <div style={{ color: '#f43f5e', fontWeight: 700, fontSize: '0.9rem', marginBottom: '4px' }}>
                 No Matching Pet Found!

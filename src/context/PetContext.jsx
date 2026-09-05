@@ -21,7 +21,7 @@ export const PetProvider = ({ children }) => {
   });
 
   // Global app navigation view
-  const [currentView, setCurrentView] = useState('dashboard');
+  const [currentView, setCurrentView] = useState('main-menu');
   const [phoneFrameMode, setPhoneFrameMode] = useState(true);
   const [isOnline, setIsOnline] = useState(true);
 

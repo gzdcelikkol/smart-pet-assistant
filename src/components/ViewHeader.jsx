@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { usePet } from '../context/PetContext';
-import { PlusCircle, ChevronDown, Wifi, WifiOff, Sparkles } from 'lucide-react';
+import { PlusCircle, ChevronDown, Wifi, WifiOff, Sparkles, Home } from 'lucide-react';
 import { sounds } from '../utils/soundEffects';
 
-export const ViewHeader = ({ title, subtitle, onOpenRegisterModal }) => {
-  const { pets, activePet, activePetId, setActivePetId, isOnline, setIsOnline } = usePet();
+export const ViewHeader = ({ title, subtitle, onOpenRegisterModal, hideHomeButton }) => {
+  const { pets, activePet, activePetId, setActivePetId, isOnline, setIsOnline, setCurrentView } = usePet();
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
   const handleSelectPet = (petId) => {
@@ -15,9 +15,33 @@ export const ViewHeader = ({ title, subtitle, onOpenRegisterModal }) => {
 
   return (
     <header className="view-header">
-      <div className="view-title-group">
-        <h1>{title}</h1>
-        {subtitle && <p>{subtitle}</p>}
+      <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+        {!hideHomeButton && (
+          <button 
+            onClick={() => setCurrentView('main-menu')}
+            style={{
+              background: 'rgba(16, 185, 129, 0.15)',
+              border: '1px solid rgba(16, 185, 129, 0.3)',
+              color: '#10b981',
+              borderRadius: '12px',
+              padding: '6px 12px',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '6px',
+              cursor: 'pointer',
+              fontWeight: 700,
+              fontSize: '0.8rem'
+            }}
+            title="Back to App Launcher"
+          >
+            <Home size={16} />
+            <span>HOME</span>
+          </button>
+        )}
+        <div className="view-title-group">
+          <h1>{title}</h1>
+          {subtitle && <p>{subtitle}</p>}
+        </div>
       </div>
 
       <div style={{ display: 'flex', alignItems: 'center', gap: '8px', position: 'relative' }}>

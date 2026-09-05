@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { PetProvider, usePet } from './context/PetContext';
 import { GlassesContainer } from './components/GlassesContainer';
+import { MainMenuView } from './views/MainMenuView';
 import { DashboardView } from './views/DashboardView';
 import { PetRegistrationModal } from './views/PetRegistrationModal';
 import { PetRecognitionView } from './views/PetRecognitionView';
@@ -44,6 +45,8 @@ const MainAppContent = () => {
   // Render view by current ID
   const renderCurrentView = () => {
     switch (currentView) {
+      case 'main-menu':
+        return <MainMenuView onOpenRegisterModal={() => setIsRegisterOpen(true)} />;
       case 'dashboard':
         return <DashboardView onOpenRegisterModal={() => setIsRegisterOpen(true)} />;
       case 'recognition':

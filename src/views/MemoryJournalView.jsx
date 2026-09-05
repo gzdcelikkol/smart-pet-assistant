@@ -40,7 +40,7 @@ export const MemoryJournalView = ({ onOpenRegisterModal }) => {
     // Prerequisite Check (Section 3.10 Step 2: At least 3 media files)
     if (memories.length < 3) {
       sounds.playAlert();
-      alert(`Anı Günlüğü için en az 3 fotoğraf veya video gereklidir (Şu an: ${memories.length}). Lütfen önce çekim yapın!`);
+      alert(`At least 3 photos or videos are required for the Memory Journal (Currently: ${memories.length}). Please capture some first!`);
       return;
     }
 
@@ -121,8 +121,8 @@ export const MemoryJournalView = ({ onOpenRegisterModal }) => {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', height: '100%', position: 'relative' }}>
       <ViewHeader 
-        title="AI Anı Günlüğü" 
-        subtitle="Haftalık Öne Çıkanlar & Hikaye Filmi" 
+        title="AI Memory Journal" 
+        subtitle="Weekly Highlights & Story Movie" 
         onOpenRegisterModal={onOpenRegisterModal} 
       />
 
@@ -142,7 +142,7 @@ export const MemoryJournalView = ({ onOpenRegisterModal }) => {
           }}>
             <AlertCircle size={18} color="#f43f5e" />
             <div>
-              <strong>Hata: Anı günlüğü oluşturulamadı!</strong>
+              <strong>Error: Memory journal could not be created!</strong>
               <div style={{ fontSize: '0.7rem' }}>Bozuk bir video dosyası veya yapay zeka derleme motoru hatası tespit edildi.</div>
             </div>
           </div>
@@ -159,13 +159,13 @@ export const MemoryJournalView = ({ onOpenRegisterModal }) => {
             }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#c084fc', fontSize: '0.74rem', fontWeight: 800, textTransform: 'uppercase' }}>
                 <Sparkles size={14} />
-                <span>Yapay Zeka Destekli Derleme</span>
+                <span>AI-Powered Compilation</span>
               </div>
               <h2 style={{ fontSize: '1.25rem', fontWeight: 800, color: '#fff', marginTop: '4px' }}>
-                Haftalık Öne Çıkanlar Hikayesi
+                Weekly Highlights Story
               </h2>
-              <p style={{ fontSize: '0.75rem', color: '#cbd5e1', marginTop: '4px', lineHeight: 1.4 }}>
-                {activePet?.name} ile kaydedilen tüm fotoğrafları ve 15 saniyelik video klipleri duygusal bir mini filme dönüştürün.
+              <p style={{ fontSize: '0.8rem', color: '#94a3b8', lineHeight: '1.4' }}>
+                Transform all photos and 15-second video clips recorded with {activePet?.name} into an emotional mini-movie.
               </p>
 
               <div style={{ display: 'flex', gap: '8px', marginTop: '14px' }}>
@@ -180,15 +180,17 @@ export const MemoryJournalView = ({ onOpenRegisterModal }) => {
                   }}
                 >
                   <Play size={16} fill="#fff" />
-                  <span>"Play Memory Movie" Başlat</span>
+                  <span>Play Memory Movie</span>
                 </button>
+              </div>
+              <div style={{ display: 'flex', gap: '10px', marginTop: '10px' }}>
                 <button 
                   onClick={() => setCurrentView('capture')}
                   className="btn-secondary"
-                  style={{ flex: 1, fontSize: '0.78rem' }}
+                  style={{ flex: 1, padding: '10px 14px', fontSize: '0.85rem' }}
                 >
-                  <Plus size={14} />
-                  <span>Yeni Çek</span>
+                  <Camera size={16} />
+                  <span>Capture New</span>
                 </button>
               </div>
             </div>
@@ -196,10 +198,10 @@ export const MemoryJournalView = ({ onOpenRegisterModal }) => {
             {/* Memories List Header */}
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '6px' }}>
               <div style={{ fontSize: '0.82rem', fontWeight: 700, color: '#fff' }}>
-                Kaydedilen Anılar ({memories.length})
+                Saved Memories ({memories.length})
               </div>
               <span style={{ fontSize: '0.7rem', color: '#94a3b8' }}>
-                Min. 3 Anı Gereklidir
+                Min. 3 Memories Required
               </span>
             </div>
 
@@ -254,22 +256,22 @@ export const MemoryJournalView = ({ onOpenRegisterModal }) => {
             {/* Test Scenarios */}
             <div className="glass-card" style={{ background: 'rgba(15, 23, 42, 0.6)' }}>
               <div style={{ fontSize: '0.74rem', fontWeight: 700, color: '#94a3b8', marginBottom: '6px' }}>
-                🧪 Anı Günlüğü Test Senaryoları
+                🧪 Memory Journal Test Scenarios
               </div>
-              <div style={{ display: 'flex', gap: '6px' }}>
+              <div style={{ display: 'flex', gap: '8px' }}>
                 <button 
                   onClick={() => handlePlayMemoryMovie(false)}
                   className="sim-btn"
-                  style={{ flex: 1, justifyContent: 'center', fontSize: '0.68rem' }}
+                  style={{ flex: 1, justifyContent: 'center', fontSize: '0.7rem' }}
                 >
-                  Başarılı AI Derleme
+                  Successful AI Compilation
                 </button>
                 <button 
                   onClick={() => handlePlayMemoryMovie(true)}
                   className="sim-btn danger"
-                  style={{ flex: 1, justifyContent: 'center', fontSize: '0.68rem' }}
+                  style={{ flex: 1, justifyContent: 'center', fontSize: '0.7rem' }}
                 >
-                  Derleme Hatası (Alt. C)
+                  Compilation Error (Alt. C)
                 </button>
               </div>
             </div>
@@ -325,10 +327,10 @@ export const MemoryJournalView = ({ onOpenRegisterModal }) => {
                 </div>
 
                 <div style={{ fontSize: '0.72rem', color: '#94a3b8' }}>
-                  Başlık: "{activePet?.name}'s Weekly Highlights Reel"
+                  Title: "{activePet?.name}'s Weekly Highlights Reel"
                 </div>
-                <div style={{ fontSize: '0.68rem', color: '#64748b', marginTop: '2px' }}>
-                  Tahmini Süre: 02:30 • Müzik ve Geçişler Ekleniyor
+                <div style={{ fontSize: '0.75rem', color: '#34d399', marginTop: '2px' }}>
+                  Estimated Duration: 02:30 • Adding Music and Transitions
                 </div>
 
                 {/* Progress bar */}
@@ -386,7 +388,7 @@ export const MemoryJournalView = ({ onOpenRegisterModal }) => {
 
               <div style={{ display: 'flex', gap: '8px' }}>
                 <button
-                  onClick={() => triggerCallInterrupt('Annem (Öncelikli Çağrı)')}
+                  onClick={() => triggerCallInterrupt('Mom (Priority Call)')}
                   style={{
                     background: 'rgba(244, 63, 94, 0.3)',
                     border: '1px solid rgba(244, 63, 94, 0.5)',
@@ -417,7 +419,7 @@ export const MemoryJournalView = ({ onOpenRegisterModal }) => {
                     justifyContent: 'center',
                     cursor: 'pointer'
                   }}
-                  title="Çıkış ('X' Icon - Alt. Flow A)"
+                  title="Exit ('X' Icon - Alt. Flow A)"
                 >
                   <X size={16} />
                 </button>
